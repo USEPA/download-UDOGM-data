@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_R_create_artifact_trigger_webhook
-
+  run_R_create_artifact_trigger_webhook:
     runs_on: ubuntu-latest
 
     steps:
