@@ -16,6 +16,10 @@ jobs:
 
       - name: Get R requirements
         uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            tidyverse
+            lubridate
 
       - name: Run R code
         run: R -f download_udogm_data.R
