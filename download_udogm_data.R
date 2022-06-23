@@ -1,4 +1,4 @@
-# 
+#
 #
 #
 #
@@ -11,6 +11,8 @@
 #
 
 # system.time({
+
+install.packages(c("tidyverse", "lubridate"))
 
 library(tidyverse)
 library(lubridate)
