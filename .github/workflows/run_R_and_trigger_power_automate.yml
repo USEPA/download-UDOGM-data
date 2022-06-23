@@ -1,4 +1,4 @@
-name: run_R_and_trigger_power_automate
+name: Run R and Trigger Power Automate flow
 
 on:
   workflow_dispatch:
