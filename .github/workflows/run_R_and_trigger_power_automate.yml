@@ -15,7 +15,7 @@ jobs:
         uses: r-lib/actions/setup-r@v1
 
       - name: Run R code
-        run: R -e download_udogm_data.R
+        run: R -f download_udogm_data.R
 
       - name: Upload .csv files to artifact
         uses: actions/upload-artifact@v3
