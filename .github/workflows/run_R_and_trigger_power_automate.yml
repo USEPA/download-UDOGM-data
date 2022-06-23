@@ -5,7 +5,7 @@ on:
 
 jobs:
   run_R_create_artifact_trigger_webhook:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Check out code
@@ -15,7 +15,7 @@ jobs:
         uses: r-lib/actions/setup-r@v1
 
       - name: Run R code
-        run: R -f download_udogm_data.R
+        run: Rscript.exe download_udogm_data.R
 
       - name: Upload .csv files to artifact
         uses: actions/upload-artifact@v3
