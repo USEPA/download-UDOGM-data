@@ -18,6 +18,7 @@ library(lubridate)
 
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
+    options(timeout = 300)
     download.file(url, temp)
     data <- read.csv(unz(temp, file),
                      stringsAsFactors = F,
