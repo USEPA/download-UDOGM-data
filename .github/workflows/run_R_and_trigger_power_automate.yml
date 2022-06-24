@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: r-data-files
-          path: ${{ github.workspace }}/*.csv
+          path: ./*.csv
           retention-days: 5
