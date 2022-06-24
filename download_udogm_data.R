@@ -15,8 +15,6 @@
 library(tidyverse)
 library(lubridate)
 
-options(timeout = 300)
-
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
     download.file(url, temp)
