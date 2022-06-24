@@ -131,35 +131,35 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 
 write.csv(disposition, paste('disposition',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(entities, paste('entities.csv',
+write.csv(entities, paste('entities',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(fields, paste('fields.csv',
+write.csv(fields, paste('fields',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(lat_long_coordinates, paste('lat_long_coordinates.csv',
+write.csv(lat_long_coordinates, paste('lat_long_coordinates',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(operators, paste('operators.csv',
+write.csv(operators, paste('operators',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_location, paste('plant_location.csv',
+write.csv(plant_location, paste('plant_location',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_operators, paste('plant_operators.csv',
+write.csv(plant_operators, paste('plant_operators',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_prod, paste('plant_prod.csv',
+write.csv(plant_prod, paste('plant_prod',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_summary, paste('plant_summary.csv',
+write.csv(plant_summary, paste('plant_summary',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_well_alloc, paste('plant_well_alloc.csv',
+write.csv(plant_well_alloc, paste('plant_well_alloc',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(producing_zones, paste('producing_zones.csv',
+write.csv(producing_zones, paste('producing_zones',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(production, paste('production.csv',
+write.csv(production, paste('production',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(uic_disposal_vols, paste('uic_disposal_vols.csv',
+write.csv(uic_disposal_vols, paste('uic_disposal_vols',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(uic_project_injection_vols, paste('uic_project_injection_vols.csv',
+write.csv(uic_project_injection_vols, paste('uic_project_injection_vols',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(utm_coordinates, paste('utm_coordinates.csv',
+write.csv(utm_coordinates, paste('utm_coordinates',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(wells, paste('wells.csv',
+write.csv(wells, paste('wells',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(wells_history, paste('wells_history.csv',
+write.csv(wells_history, paste('wells_history',
                               Sys.Date(), '.csv', sep = ""), row.names = F)
