@@ -3,6 +3,7 @@ name: Run R and Trigger Power Automate flow
 on:
   workflow_dispatch:
   repository_dispatch:
+    types: [run-r-script]
 #  schedule:
 #    - cron: '30 5 * * *'
 
