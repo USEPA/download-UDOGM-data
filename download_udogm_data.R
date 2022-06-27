@@ -134,10 +134,8 @@ dir.create("./dataOut")
 setwd("./dataOut")
 
 output_data = function(data_table, filename) {
-    if (class(data_table) == "table") {
-        data_table = data.frame(rbind(data_table))
-    }
-    write_csv(data_table, filename)
+    df = data.frame(rbind(data_table))
+    write_csv(df, filename)
 }
 
 output_data(disposition, paste('disposition',
