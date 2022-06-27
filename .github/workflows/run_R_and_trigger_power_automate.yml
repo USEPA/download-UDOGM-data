@@ -2,6 +2,9 @@ name: Run R and Trigger Power Automate flow
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+#  schedule:
+#    - cron: '30 5 * * *'
 
 jobs:
   run_R_create_artifact_trigger_webhook:
@@ -23,9 +26,6 @@ jobs:
 
       - name: Run R code
         run: R -f download_udogm_data.R
-        
-      - name: Check for file sizes
-        run: ls -sS .
 
       - name: Upload .csv files to artifact
         uses: actions/upload-artifact@v3
