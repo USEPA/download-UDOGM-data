@@ -132,6 +132,7 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 output_data = function(data_table, filename) {
     print(nrow(data_table))
     write.csv(data_table, paste(filename, '.csv', , sep = ''), row.names = FALSE)
+    print(paste(filename, '.csv', , sep = ''))
 }
 
 output_data(disposition, 'disposition')
