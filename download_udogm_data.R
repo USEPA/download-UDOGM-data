@@ -25,7 +25,7 @@ udogm_data_pull <- function(url, file){
                      colClasses = 'character')
     unlink(temp)
     as_tibble(data)
-    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
+    Sys.sleep(10)    # downloads keep timing out, may be getting throttled
 }
 
 ##  the file on the UDOGM server had a weird character that doesn't allow the full download of the data.  use the csv method until the isue is resolved
@@ -133,37 +133,44 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 dir.create("./dataOut")
 setwd("./dataOut")
 
-write_csv(disposition, paste('disposition',
+output_data = function(data_table, filename) {
+    if class(data_table) == "table" {
+        data_table = data.frame(rbind(data_table))
+    }
+    write_csv(data_table, filename)
+}
+
+output_data(disposition, paste('disposition',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(entities, paste('entities',
+output_data(entities, paste('entities',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(fields, paste('fields',
+output_data(fields, paste('fields',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(lat_long_coordinates, paste('lat_long_coordinates',
+output_data(lat_long_coordinates, paste('lat_long_coordinates',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(operators, paste('operators',
+output_data(operators, paste('operators',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(plant_location, paste('plant_location',
+output_data(plant_location, paste('plant_location',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(plant_operators, paste('plant_operators',
+output_data(plant_operators, paste('plant_operators',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(plant_prod, paste('plant_prod',
+output_data(plant_prod, paste('plant_prod',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(plant_summary, paste('plant_summary',
+output_data(plant_summary, paste('plant_summary',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(plant_well_alloc, paste('plant_well_alloc',
+output_data(plant_well_alloc, paste('plant_well_alloc',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(producing_zones, paste('producing_zones',
+output_data(producing_zones, paste('producing_zones',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(production, paste('production',
+output_data(production, paste('production',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(uic_disposal_vols, paste('uic_disposal_vols',
+output_data(uic_disposal_vols, paste('uic_disposal_vols',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(uic_project_injection_vols, paste('uic_project_injection_vols',
+output_data(uic_project_injection_vols, paste('uic_project_injection_vols',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(utm_coordinates, paste('utm_coordinates',
+output_data(utm_coordinates, paste('utm_coordinates',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(wells, paste('wells',
+output_data(wells, paste('wells',
                               Sys.Date(), '.csv', sep = ""))
-write_csv(wells_history, paste('wells_history',
+output_data(wells_history, paste('wells_history',
                               Sys.Date(), '.csv', sep = ""))
