@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [run-r-script]
-#  schedule:
-#    - cron: '30 5 * * *'
+  schedule:
+   - cron: '30 5 1 * *'
 
 jobs:
   run_R_create_artifact_trigger_webhook:
