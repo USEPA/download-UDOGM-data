@@ -131,40 +131,23 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 
 output_data = function(data_table, filename) {
     print(nrow(data_table))
-    write.csv(data_table, filename, row.names = FALSE)
+    write.csv(data_table, paste(filename, '.csv', ''), row.names = FALSE)
 }
 
-output_data(disposition, paste('disposition',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(entities, paste('entities',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(fields, paste('fields',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(lat_long_coordinates, paste('lat_long_coordinates',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(operators, paste('operators',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(plant_location, paste('plant_location',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(plant_operators, paste('plant_operators',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(plant_prod, paste('plant_prod',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(plant_summary, paste('plant_summary',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(plant_well_alloc, paste('plant_well_alloc',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(producing_zones, paste('producing_zones',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(production, paste('production',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(uic_disposal_vols, paste('uic_disposal_vols',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(uic_project_injection_vols, paste('uic_project_injection_vols',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(utm_coordinates, paste('utm_coordinates',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(wells, paste('wells',
-                              Sys.Date(), '.csv', sep = ""))
-output_data(wells_history, paste('wells_history',
-                              Sys.Date(), '.csv', sep = ""))
+output_data(disposition, 'disposition')
+output_data(entities, 'entities')
+output_data(fields, 'fields')
+output_data(lat_long_coordinates, 'lat_long_coordinates')
+output_data(operators, 'operators')
+output_data(plant_location, 'plant_location')
+output_data(plant_operators, 'plant_operators')
+output_data(plant_prod, 'plant_prod')
+output_data(plant_summary, 'plant_summary')
+output_data(plant_well_alloc, 'plant_well_alloc')
+output_data(producing_zones, 'producing_zones')
+output_data(production, 'production')
+output_data(uic_disposal_vols, 'uic_disposal_vols')
+output_data(uic_project_injection_vols, 'uic_project_injection_vols')
+output_data(utm_coordinates, 'utm_coordinates')
+output_data(wells, 'wells')
+output_data(wells_history, 'wells_history')
