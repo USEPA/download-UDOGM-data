@@ -18,13 +18,13 @@ library(lubridate)
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
     download.file(url, temp)
+    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
     data <- read.csv(unz(temp, file),
                      stringsAsFactors = F,
                      # na.strings = 'NULL',
                      colClasses = 'character')
     unlink(temp)
     as_tibble(data)
-    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
 }
 
 ##  the file on the UDOGM server had a weird character that doesn't allow the full download of the data.  use the csv method until the isue is resolved
@@ -130,6 +130,7 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 ## tables output as csv
 
 output_data = function(data_table, filename) {
+    print(nrow(data_table))
     write.csv(data_table, filename, row.names = FALSE)
 }
 
