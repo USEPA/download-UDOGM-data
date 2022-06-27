@@ -14,6 +14,7 @@
 
 library(tidyverse)
 library(lubridate)
+library(readr)
 
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
@@ -24,7 +25,7 @@ udogm_data_pull <- function(url, file){
                      colClasses = 'character')
     unlink(temp)
     as_tibble(data)
-    Sys.sleep(60)    # downloads keep timing out, may be getting throttled
+    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
 }
 
 ##  the file on the UDOGM server had a weird character that doesn't allow the full download of the data.  use the csv method until the isue is resolved
@@ -132,37 +133,37 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 dir.create("./dataOut")
 setwd("./dataOut")
 
-write.csv(disposition, paste('disposition',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(entities, paste('entities',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(fields, paste('fields',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(lat_long_coordinates, paste('lat_long_coordinates',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(operators, paste('operators',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_location, paste('plant_location',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_operators, paste('plant_operators',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_prod, paste('plant_prod',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_summary, paste('plant_summary',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(plant_well_alloc, paste('plant_well_alloc',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(producing_zones, paste('producing_zones',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(production, paste('production',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(uic_disposal_vols, paste('uic_disposal_vols',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(uic_project_injection_vols, paste('uic_project_injection_vols',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(utm_coordinates, paste('utm_coordinates',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(wells, paste('wells',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
-write.csv(wells_history, paste('wells_history',
-                              Sys.Date(), '.csv', sep = ""), row.names = F)
+write_csv(disposition, paste('disposition',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(entities, paste('entities',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(fields, paste('fields',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(lat_long_coordinates, paste('lat_long_coordinates',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(operators, paste('operators',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(plant_location, paste('plant_location',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(plant_operators, paste('plant_operators',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(plant_prod, paste('plant_prod',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(plant_summary, paste('plant_summary',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(plant_well_alloc, paste('plant_well_alloc',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(producing_zones, paste('producing_zones',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(production, paste('production',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(uic_disposal_vols, paste('uic_disposal_vols',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(uic_project_injection_vols, paste('uic_project_injection_vols',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(utm_coordinates, paste('utm_coordinates',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(wells, paste('wells',
+                              Sys.Date(), '.csv', sep = ""))
+write_csv(wells_history, paste('wells_history',
+                              Sys.Date(), '.csv', sep = ""))
