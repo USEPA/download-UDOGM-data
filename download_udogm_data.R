@@ -25,7 +25,7 @@ udogm_data_pull <- function(url, file){
                      colClasses = 'character')
     unlink(temp)
     as_tibble(data)
-    Sys.sleep(10)    # downloads keep timing out, may be getting throttled
+    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
 }
 
 ##  the file on the UDOGM server had a weird character that doesn't allow the full download of the data.  use the csv method until the isue is resolved
