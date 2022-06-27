@@ -14,7 +14,6 @@
 
 library(tidyverse)
 library(lubridate)
-library(readr)
 
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
