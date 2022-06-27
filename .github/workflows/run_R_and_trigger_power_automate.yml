@@ -20,17 +20,16 @@ jobs:
           packages: |
             tidyverse
             lubridate
-            readr
 
       - name: Run R code
         run: R -f download_udogm_data.R
         
       - name: Check for file sizes
-        run: ls -sS dataOut
+        run: ls -sS .
 
       - name: Upload .csv files to artifact
         uses: actions/upload-artifact@v3
         with:
           name: r-data-files
-          path: dataOut
+          path: ./*.csv
           retention-days: 5
