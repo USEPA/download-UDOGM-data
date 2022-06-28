@@ -19,7 +19,7 @@ library('xlsx')
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
     download.file(url, temp)
-    Sys.sleep(20)    # downloads keep timing out, may be getting throttled
+    Sys.sleep(30)    # downloads keep timing out, may be getting throttled
     data <- read.csv(unz(temp, file),
                      stringsAsFactors = F,
                      # na.strings = 'NULL',
