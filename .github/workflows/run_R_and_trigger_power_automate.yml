@@ -24,6 +24,7 @@ jobs:
           packages: |
             tidyverse
             lubridate
+            xlsx
 
       - name: Run R code
         run: R -f download_udogm_data.R
