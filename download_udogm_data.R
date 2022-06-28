@@ -48,19 +48,13 @@ production1 <- do.call('rbind',
 ))
 
 production2 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2009To2014.zip',
-                    'Production2009To2014.csv'))
+                    'Production2009To2014.csv')
 
 production3 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2015To2019.zip',
-                    'Production2015To2019.csv'))
+                    'Production2015To2019.csv')
 
-production4 <- do.call('rbind',
-
-                      list(
-
-    udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2020To2024.zip',
+production4 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2020To2024.zip',
                     'Production2020To2024.csv')
-                      )
-                            )
 
 
 disposition1 <- do.call('rbind',
