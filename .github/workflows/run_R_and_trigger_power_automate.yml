@@ -52,14 +52,12 @@ jobs:
           path: production1.csv
           retention-days: 5
   
-  
       - name: Update production2.csv to artifact
         uses: actions/upload-artifact@v3
         with:
           name: production2-file
           path: production2.csv
           retention-days: 5
-
 
       - name: Update production3.csv to artifact
         uses: actions/upload-artifact@v3
