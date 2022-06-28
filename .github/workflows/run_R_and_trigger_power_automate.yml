@@ -29,7 +29,7 @@ jobs:
       - name: Run R code
         run: R -f download_udogm_data.R
 
-      - name: Upload .csv files to artifact
+      - name: Upload .xlsx files to artifact
         uses: actions/upload-artifact@v3
         with:
           name: r-data-files
