@@ -36,7 +36,7 @@ wells <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Wells.zip',
 wells_history <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/WellHistory.zip',
                                  'WellHistory.csv')
 
-production <- do.call('rbind',
+production1 <- do.call('rbind',
 
                       list(
 
@@ -44,13 +44,21 @@ production <- do.call('rbind',
                     'Production1984To1998.csv'),
 
     udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production1999To2008.zip',
-                    'Production1999To2008.csv'),
+                    'Production1999To2008.csv')
+))
 
+production2 <- do.call('rbind',
+
+                      list(
     udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2009To2014.zip',
                     'Production2009To2014.csv'),
 
     udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2015To2019.zip',
-                    'Production2015To2019.csv'),
+                    'Production2015To2019.csv')
+))
+production3 <- do.call('rbind',
+
+                      list(
 
     udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2020To2024.zip',
                     'Production2020To2024.csv')
@@ -58,7 +66,7 @@ production <- do.call('rbind',
                             )
 
 
-disposition <- do.call('rbind',
+disposition1 <- do.call('rbind',
 
                         list(
 
@@ -69,7 +77,12 @@ disposition <- do.call('rbind',
                           'Disposition1999To2008.csv'),
 
           udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2009To2014.zip',
-                          'Disposition2009To2014.csv'),
+                          'Disposition2009To2014.csv')
+ ))
+
+disposition2 <- do.call('rbind',
+
+                        list(
 
           udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2015To2019.zip',
                           'Disposition2015To2019.csv'),
@@ -136,7 +149,11 @@ output_data = function(data_table, filename) {
     write.csv(data_table, filename_full, row.names = FALSE)
 }
 
-output_data(disposition, 'disposition')
+output_data(disposition1, 'disposition1')
+output_data(disposition2, 'disposition2')
+output_data(production1, 'production1')
+output_data(production2, 'production2')
+output_data(production3, 'production3')
 output_data(entities, 'entities')
 output_data(fields, 'fields')
 output_data(lat_long_coordinates, 'lat_long_coordinates')
@@ -147,7 +164,6 @@ output_data(plant_prod, 'plant_prod')
 output_data(plant_summary, 'plant_summary')
 output_data(plant_well_alloc, 'plant_well_alloc')
 output_data(producing_zones, 'producing_zones')
-output_data(production, 'production')
 output_data(uic_disposal_vols, 'uic_disposal_vols')
 output_data(uic_project_injection_vols, 'uic_project_injection_vols')
 output_data(utm_coordinates, 'utm_coordinates')
