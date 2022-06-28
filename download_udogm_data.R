@@ -14,7 +14,6 @@
 
 library('tidyverse')
 library('lubridate')
-library('xlsx')
 
 udogm_data_pull <- function(url, file){
     temp <- tempfile()
@@ -132,9 +131,9 @@ uic_disposal_vols <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/U
 
 output_data = function(data_table, filename) {
     print(nrow(data_table))
-    filename_full = paste(filename, '.xlsx', sep = '')
+    filename_full = paste(filename, '.csv', sep = '')
     print(filename_full)
-    write.xlsx(data_table, filename_full, sheetName = 'Sheet2', row.names = FALSE, append = FALSE)
+    write.csv(data_table, filename_full, row.names = FALSE)
 }
 
 output_data(disposition, 'disposition')
