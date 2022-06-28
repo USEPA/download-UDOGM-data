@@ -28,25 +28,48 @@ jobs:
       - name: Run R code
         run: R -f download_udogm_data.R
 
-      - name: Update disposition.csv to artifact
+      - name: Update disposition1.csv to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: disposition-file
-          path: disposition.csv
+          name: disposition1-file
+          path: disposition1.csv
           retention-days: 5
 
-      - name: Delete disposition.csv
-        run: rm disposition.csv
-
-      - name: Update production.csv to artifact
+      - name: Update disposition2.csv to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: production-file
-          path: production.csv
+          name: disposition2-file
+          path: disposition2.csv
+          retention-days: 5
+          
+      - name: Delete disposition.csv
+        run: rm disposition?.csv
+
+      - name: Update production1.csv to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: production1-file
+          path: production1.csv
+          retention-days: 5
+  
+  
+      - name: Update production2.csv to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: production2-file
+          path: production2.csv
+          retention-days: 5
+
+
+      - name: Update production3.csv to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: production3-file
+          path: production3.csv
           retention-days: 5
 
       - name: Delete production.csv
-        run: rm production.csv
+        run: rm production?.csv
         
       - name: Upload .csv files to artifact
         uses: actions/upload-artifact@v3
