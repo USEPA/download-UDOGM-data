@@ -47,16 +47,13 @@ production1 <- do.call('rbind',
                     'Production1999To2008.csv')
 ))
 
-production2 <- do.call('rbind',
+production2 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2009To2014.zip',
+                    'Production2009To2014.csv'))
 
-                      list(
-    udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2009To2014.zip',
-                    'Production2009To2014.csv'),
+production3 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2015To2019.zip',
+                    'Production2015To2019.csv'))
 
-    udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Production2015To2019.zip',
-                    'Production2015To2019.csv')
-))
-production3 <- do.call('rbind',
+production4 <- do.call('rbind',
 
                       list(
 
@@ -74,23 +71,23 @@ disposition1 <- do.call('rbind',
                           'Disposition1984To1998.csv'),
 
           udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition1999To2008.zip',
-                          'Disposition1999To2008.csv'),
-
-          udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2009To2014.zip',
-                          'Disposition2009To2014.csv')
+                          'Disposition1999To2008.csv')
  ))
+
 
 disposition2 <- do.call('rbind',
 
                         list(
 
-          udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2015To2019.zip',
-                          'Disposition2015To2019.csv'),
+          udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2009To2014.zip',
+                          'Disposition2009To2014.csv'),
 
-          udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2020To2024.zip',
+          udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2015To2019.zip',
+                          'Disposition2015To2019.csv')
+))
+
+disposition3 <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Disposition2020To2024.zip',
                           'Disposition2020To2024.csv')
-      )
-)
 
 entities <- udogm_data_pull('https://oilgas.ogm.utah.gov/pub/Database/Entities.zip',
                                  'Entities.csv')
@@ -151,9 +148,11 @@ output_data = function(data_table, filename) {
 
 output_data(disposition1, 'disposition1')
 output_data(disposition2, 'disposition2')
+output_data(disposition3, 'disposition3')
 output_data(production1, 'production1')
 output_data(production2, 'production2')
 output_data(production3, 'production3')
+output_data(production4, 'production4')
 output_data(entities, 'entities')
 output_data(fields, 'fields')
 output_data(lat_long_coordinates, 'lat_long_coordinates')
