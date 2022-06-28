@@ -24,14 +24,33 @@ jobs:
           packages: |
             tidyverse
             lubridate
-            xlsx
 
       - name: Run R code
         run: R -f download_udogm_data.R
 
-      - name: Upload .xlsx files to artifact
+      - name: Update disposition.csv to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: r-data-files
-          path: ./*.xlsx
+          name: disposition-file
+          path: disposition.csv
+          retention-days: 5
+
+      - name: Delete disposition.csv
+        run: rm disposition.csv
+
+      - name: Update production.csv to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-file
+          path: production.csv
+          retention-days: 5
+
+      - name: Delete production.csv
+        run: rm production.csv
+        
+      - name: Upload .csv files to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: other-data-files
+          path: ./*.csv
           retention-days: 5
