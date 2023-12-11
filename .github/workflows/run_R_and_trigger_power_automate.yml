@@ -94,6 +94,8 @@ jobs:
 
       - name: Add file with last run date
         run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           if [ -f "last_run.txt" ]; then rm last_run.txt; fi
           echo $(date +'%Y-%m-%d') &> last_run.txt
           git add last_run.txt
