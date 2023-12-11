@@ -95,7 +95,7 @@ jobs:
       - name: Add file with last run date
         run: |
           if [ -f "last_run.txt" ]; then rm last_run.txt; fi
-          echo $(date +'%Y-%m-%d') | last_run.txt
+          echo $(date +'%Y-%m-%d') &> last_run.txt
           git add last_run.txt
           git diff-index --quiet HEAD || git commit -m "Automated workflow from GitHub Actions"
           git push
