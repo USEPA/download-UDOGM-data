@@ -1,3 +1,5 @@
+DEPRECATED - This repository is no longer being maintained and is available for reuse.
+
 # Download UDOGM Data
 Downloads a set of files from the Utah Division of Oil, Gas and Mining, parses them, and stores them in an Artifact.
 
